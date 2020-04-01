@@ -47,7 +47,7 @@ export default class Background extends Component {
       p5.rectMode(p5.CENTER);
     };
     draw = p5 => {
-      p5.background(255, 255, 0);
+      p5.background(255, 255, 255);
       let rectSize =  p5.mouseX/p5.windowWidth;
       let rectRadius = (p5.mouseY/p5.windowHeight) * 10;
       
