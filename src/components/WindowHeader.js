@@ -38,23 +38,21 @@ export default function WindowHeader() {
     // console.log(theme.palette);
     const theme = useTheme();
     const classes = useStyles();
-    console.log(theme.palette);
+    // console.log(theme.palette);
     return (
         <div className="window_header">
             <Box className={classes.root} bgcolor={theme.palette.primary.main} display="flex" flexDirection="row" justifyContent="center">
-            {/* <ButtonGroup color="primary" aria-label="outlined primary button group" style={{ position: 'fixed', left: 5, top: 10}}> */}
-            <IconButton color="primary" aria-label="upload picture" component="span">
-                <CloseIcon />
-            </IconButton>
-            <IconButton color="primary" aria-label="upload picture" component="span">
-                <AddIcon />
-            </IconButton>
-            {/* </ButtonGroup> */}
-            {/* <Typography component="div"> */}
+                <Box style={{ position: 'absolute', left: '0' }}>
+                    <IconButton color="primary" aria-label="upload picture" component="span">
+                        <CloseIcon />
+                    </IconButton>
+                    <IconButton color="primary" aria-label="upload picture" component="span">
+                        <AddIcon />
+                    </IconButton>
+                </Box>
                 <Box letterSpacing={3} fontWeight={600} m={1} fontSize={22} fontFamily="Poppins" display="flex" alignItems="center">
                     About
                 </Box>
-            {/* </Typography> */}
             </Box>
         </div>
     );

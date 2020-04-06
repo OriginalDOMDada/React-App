@@ -21,13 +21,13 @@ import Box from '@material-ui/core/Box';
 // const classes = useStyles();
 export default function AppHeader() {
     // props costuctor... 
-    console.log(useTheme());
+    // console.log(useTheme());
     const theme = useTheme();
     // const classes = useStyles();
     // render () {
         // const classes = useStyles();
         return (
-            <div>
+            <div style={{ display: 'none'}}>
             <AppBar position="fixed" >
                 {theme.palette.primary.main}
                 <Box width={1} height="50px" bgcolor="grey.300" p={1} my={0.5}>

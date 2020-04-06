@@ -42,7 +42,7 @@ export default class Window extends Component {
                 easeing: "cubic-bezier(.42,0,.58,1)" 
             }} 
             style={{ height: '100%', width: '100%', background: 'red', border: '4px solid black' }} >
-            <Box className="window_body" display="flex" flexDirection="column" style={{minHeight: '100%'}}>
+            <Box className="window_body" display="flex" flexDirection="column" style={{minHeight: '100%', boxShadow: '16px 16px black'}}>
                 <WindowHeader></WindowHeader>
                 <WindowBody></WindowBody>
             </Box>

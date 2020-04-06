@@ -2,18 +2,31 @@ import React from 'react';
 // import ReactDOM from 'react-dom';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Provider } from 'react-redux';
-import configureStore from './shared/redux/configureStore';
+import {createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import reducer from './reducer';
+import { getApps } from './reducer/apps/actions';
 
 import './App.css';
 
-import Window from './components/Window.js';
+import WindowContainer from './components/containers/WindowContainer.js';
+
+// import Window from './components/Window.js';
 import AppIcon from './components/AppIcon.js';
 import Background from './components/Background.js';
 import AppHeader from './components/AppHeader.js';
 
-const store = configureStore(window.initialState);
+const store = createStore(reducer, compose(
+  applyMiddleware(thunk),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+));
 
-console.log(store, window.initialState);
+store.dispatch(getApps());
+
+store.subscribe(() => console.log(store.getState()));
+
+
+// console.log(store, window.initialState);
 
 const theme = createMuiTheme({
   palette: {
@@ -58,15 +71,14 @@ const theme = createMuiTheme({
 
 
 function App() {
-
   return (
     <div className="App">
       <Provider store={store}>
       <ThemeProvider theme={theme}>
-
       <AppHeader></AppHeader>
+      {/* <AppIconContainer></AppIconContainer> */}
+      <WindowContainer></WindowContainer>
       <AppIcon></AppIcon>
-      <Window></Window>
       </ThemeProvider>
       <Background></Background>
       </Provider>
